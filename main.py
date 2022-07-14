@@ -3,7 +3,7 @@ from rich import print
 from rich.table import Table
 import os
 clear = lambda : os.system('cls')
-
+# teste
 # import os
 # print("\n" * os.get_terminal_size().lines)
 func.less()
