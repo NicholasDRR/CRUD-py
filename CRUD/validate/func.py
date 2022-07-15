@@ -1,4 +1,6 @@
 from rich import print
+from time import sleep
+from rich.progress import track
 # Printando alguns -
 def less():
     print('[red]-[/]' * 24)
@@ -25,3 +27,11 @@ def title(ttl):
     less()
     print(f'{ttl}'.center(24))
     less()
+
+# funcão sleep
+def process_data():
+    sleep(0.00001)
+
+def bar(title):
+    for i in track(range(100), description=f'[yellow] {title} DADOS'):
+        process_data()
