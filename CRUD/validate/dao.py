@@ -1,6 +1,7 @@
 import mysql.connector
 from CRUD.validate import func
 
+
 # Criando a conexão entre o BD e o PY
 class connect:
     def __init__(self):
@@ -58,5 +59,3 @@ def close():
     conn = connect()
     conn.conn.close()
     conn.cursor.close()
-
-

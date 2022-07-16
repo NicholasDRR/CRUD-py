@@ -8,9 +8,7 @@ from CRUD.validate import dao, func
 
 prompt = Prompt()
 clear = lambda: os.system('cls')
-# teste
-# import os
-# print("\n" * os.get_terminal_size().lines)
+
 func.less()
 print('CRUD'.center(24))
 func.less()
@@ -33,7 +31,7 @@ while True:
                 else:
                     clear()
                     func.title('INSERINDO DADOS')
-                    print('[red]Por favor, digite apenas letras[/]')
+                    print('[red]:X: Por favor, digite apenas letras[/]')
                     name = input('Nome: ')
                     name_product = func.checkstr(name)
             number = input('Preço: ')
@@ -42,7 +40,7 @@ while True:
                 if number[0] == '.':
                     clear()
                     func.title('INSERINDO DADOS')
-                    print('[red]Por favor digite o valor novamente![/]')
+                    print('[red]:X: Por favor digite o valor novamente![/]')
                     number = input('Preço: ')
                     price = func.checknumeric(func.convert(number))
                 if price:
@@ -50,7 +48,7 @@ while True:
                 else:
                     clear()
                     func.title('INSERINDO DADOS')
-                    print('[red]Por favor, digite apenas números[/]')
+                    print('[red]:X: Por favor, digite apenas números[/]')
                     number = input('Preço: ')
                     price = func.checknumeric(func.convert(number))
             if name_product and price:
@@ -59,7 +57,7 @@ while True:
                     func.bar('INSERINDO')
                     print('[green]:heavy_check_mark: Produto adicionado[/]')
                 except:
-                    print('[red]ERRO! (desconhecido)[/]')
+                    print('[red]:X: ERRO! (desconhecido)[/]')
         # READ
         if opc == '2':
             func.title('BANCO DE DADOS')
@@ -71,7 +69,7 @@ while True:
                     tbl2 = tbl.upper()
                     try:
                         read = dao.read(tbl)
-                        table = Table(title= f'[yellow]{tbl2}[/]', style='yellow')
+                        table = Table(title=f'[yellow]{tbl2}[/]', style='yellow')
                         table.add_column('Id_product')
                         table.add_column('Name_product')
                         table.add_column('Price')
@@ -84,14 +82,14 @@ while True:
                         break
                     except:
                         func.title('BANCO DE DADOS')
-                        print('[red]ERRO! (tabela desconhecida).[/]')
+                        print('[red]:X: ERRO! (tabela desconhecida).[/]')
                         tbl = input('Qual tabela deseja ver: ')
                         table = func.checkstr(tbl)
 
                 else:
                     clear()
                     func.title('BANCO DE DADOS')
-                    print('[red]Digite apenas letras.[/]')
+                    print('[red]:X: Digite apenas letras.[/]')
                     tbl = input('Qual tabela deseja ver: ')
                     table = func.checkstr(tbl)
         # UPDATE
@@ -114,7 +112,7 @@ while True:
                         else:
                             clear()
                             func.title('ATUALIZANDO DADOS')
-                            print('[red]Digite apenas letras.[/]')
+                            print('[red]:X: Digite apenas letras.[/]')
                             nwname = input('Novo nome: ')
                             new_name = func.checkstr(nwname)
                     idp = input('Id do produto: ')
@@ -126,7 +124,7 @@ while True:
                         else:
                             clear()
                             func.title('ATUALIZANDO DADOS')
-                            print('[red]Digite apenas números.[/]')
+                            print('[red]:X: Digite apenas números.[/]')
                             idp = input('Id do produto: ')
                             id_product = func.checknumeric(idp)
                     if new_name and id_product:
@@ -144,7 +142,7 @@ while True:
                         if np[0] == '.':
                             clear()
                             func.title('ATUALIZANDO DADOS')
-                            print('[red]Por favor digite o valor novamente![/]')
+                            print('[red]:X: Por favor digite o valor novamente![/]')
                             np = input('Novo Preço: ')
                             new_price = func.checknumeric(func.convert(np))
                         if new_price:
@@ -152,7 +150,7 @@ while True:
                         else:
                             clear()
                             func.title('ATUALIZANDO DADOS')
-                            print('[red]Digite apenas números[/]')
+                            print('[red]:X: Digite apenas números[/]')
                             np = input('Novo Preço: ')
                             new_price = func.checknumeric(func.convert(np))
                     idp = input('Id do produto: ')
@@ -163,7 +161,7 @@ while True:
                         else:
                             clear()
                             func.title('ATUALIZANDO DADOS')
-                            print('[red]Digite apenas números.[/]')
+                            print('[red]:X: Digite apenas números.[/]')
                             idp = input('Id do produto: ')
                             id_product = func.checknumeric(idp)
                     if new_price and id_product:
@@ -172,12 +170,12 @@ while True:
                             func.bar('ATUALIZANDO')
                             print('[green]:heavy_check_mark: Preço atualizado[/]! ')
                         except:
-                            print('[red]ERRO (desconhecido)[/]')
+                            print('[red]:X: ERRO (desconhecido)[/]')
                     break
                 else:
                     clear()
                     func.title('ATUALIZANDO DADOS')
-                    print('[red]Escolha entre [blue]1[/] e [blue]2[/][/]')
+                    print('[red]:X: Escolha entre [blue]1[/] e [blue]2[/][/]')
                     att = input('Atualizar: ')
                 # DELETE
         # DELETE
@@ -202,11 +200,11 @@ while True:
                                         print(f'[green]:heavy_check_mark: Produto com id: [blue]{id}[/] deletado![/]')
                                         break
                                     except:
-                                        print('[red]ERRO! Digite um id válido.[/]')
+                                        print('[red]:X: ERRO! Digite um id válido.[/]')
                                 else:
                                     clear()
                                     func.title('DELETANDO DADOS')
-                                    print('[red]Digite apenas números.[/]')
+                                    print('[red]:X: Digite apenas números.[/]')
                                     id = input('Id do produto: ')
                                     id_product = func.checknumeric(id)
                             break
@@ -216,7 +214,7 @@ while True:
                             id_product = []
                             for c in range(int(nm)):
                                 while True:
-                                    np = prompt.ask(f'[blue]{c+1}º[/] id')
+                                    np = prompt.ask(f'[blue]{c + 1}º[/] id')
                                     number = func.checknumeric(np)
                                     if number:
                                         id_product.append(np)
@@ -228,23 +226,25 @@ while True:
                                     else:
                                         clear()
                                         func.title('DELETANDO VALORES')
-                                        print('[red]Digite um id válido[/]')
+                                        print('[red]:X: Digite um id válido[/]')
                             break
                         else:
                             clear()
                             func.title('DELETANDO DADOS')
-                            print('[red]Número inválido[/]')
+                            print('[red]:X: Número inválido[/]')
                             nm = input('Deseja apagar quantos valores: ')
                             amount = func.checknumeric(nm)
                     break
                 else:
                     clear()
                     func.title('DELETANDO DADOS')
-                    print('[red]Por favor, digite apenas números[/]')
+                    print('[red]:X: Por favor, digite apenas números[/]')
                     nm = input('Deseja apagar quantos valores: ')
                     amount = func.checknumeric(nm)
 
         break
     else:
-        print('[red]Digite um número válido![/]')
+        print('[red]:X: Digite um número válido![/]')
         opc = input('Digite sua opção: ')
+
+dao.close()
