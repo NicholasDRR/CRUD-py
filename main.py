@@ -137,10 +137,20 @@ while True:
                             idp = input('Id do produto: ')
                             id_product = func.checknumeric(idp)
                     if new_name and id_product:
-                        dao.update(name, newid)
-                        func.bar('ATUALIZANDO')
-                        print('[green]:heavy_check_mark: Nome atualizado![/]')
-
+                        idexist = dao.id(newid)
+                        nameexist = dao.name(nwname)
+                        if nameexist or idexist:
+                            func.bar('ATUALIZANDO')
+                            clear()
+                            func.title('ATUALIZANDO DADOS')
+                            if nameexist:
+                                print(f'[red]:X: ERRO! (Nome de produto já existe)[/]')
+                            if idexist:
+                                print(f'[red]:X: ERRO! (ID de produto inválido)[/]')
+                        else:
+                            dao.update(name, newid)
+                            func.bar('ATUALIZANDO')
+                            print('[green]:heavy_check_mark: Nome atualizado![/]')
                     break
                 elif att == '2':
                     clear()

@@ -47,9 +47,20 @@ def update(att, id_product):
         opt = 'price'
     else:
         opt = 'name_product'
-    command = f' UPDATE sales SET {opt} = "{att}" WHERE id_product = {id_product}'
-    conn.cursor.execute(command)
-    conn.cursor.fetchall()
+    # VALIDANDO NOME DO PRODUTO
+    if opt == 'name_product':
+        name(att)
+        if name(att):
+            pass
+        else:
+            command = f' UPDATE sales SET {opt} = "{att}" WHERE id_product = {id_product}'
+            conn.cursor.execute(command)
+            conn.cursor.fetchall()
+    # SE FOR PREÇO EXECUTA
+    if opt == 'price':
+        command = f' UPDATE sales SET {opt} = "{att}" WHERE id_product = {id_product}'
+        conn.cursor.execute(command)
+        conn.cursor.fetchall()
 
 
 # DELETE
@@ -63,6 +74,32 @@ def delete(id_product):
         conn.cursor.execute(command)
         conn.conn.commit()
         return True
+
+
+# VALIDANDO ID
+def id(id_product):
+    conn = connect()
+    id = f'select id_product from sales where id_product = "{id_product}";'
+    conn.cursor.execute(id)
+    idexist = conn.cursor.fetchall()
+    if not idexist:
+        return True
+    else:
+        return False
+
+
+# VALIDANDO NOME
+def name(name_product):
+    conn = connect()
+    name = f'select name_product from sales where name_product = "{name_product}";'
+    conn.cursor.execute(name)
+    nameexist = conn.cursor.fetchall()
+    if nameexist:
+        return True
+    else:
+        return False
+
+
 # 'Fechando' o banco de dados
 def close():
     conn = connect()
