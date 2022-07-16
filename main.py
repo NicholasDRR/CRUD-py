@@ -6,9 +6,12 @@ from rich.table import Table
 
 from CRUD.validate import dao, func
 
+# DECLARANDO VAR PRA RECEBER O PROMPT
 prompt = Prompt()
+# CRIANDO A FUNÇÃO LIMPA TELA
 clear = lambda: os.system('cls')
 
+# MENU INICIAL
 func.less()
 print('CRUD'.center(24))
 func.less()
@@ -77,7 +80,6 @@ while True:
                             table.add_row(str(i[0]), str(i[1]), str(i[2]))
                         func.bar('LENDO')
                         clear()
-
                         print(table)
                         break
                     except:
@@ -194,13 +196,21 @@ while True:
                             id_product = func.checknumeric(id)
                             while True:
                                 if id_product:
+                                    idexist = dao.delete(id)
                                     try:
-                                        dao.delete(id)
-                                        func.bar('DELETANDO')
-                                        print(f'[green]:heavy_check_mark: Produto com id: [blue]{id}[/] deletado![/]')
-                                        break
-                                    except:
+                                        if idexist:
+                                            func.bar('DELETANDO')
+                                            print(
+                                                f'[green]:heavy_check_mark: Produto com id: [blue]{id}[/] deletado![/]')
+                                            break
+                                        else:
+                                            clear()
+                                            func.title('DELETANDO DADOS')
+                                            print('[red]:X: ERRO (ID inexistente).[/]')
+                                            break
+                                    except Exception as erro:
                                         print('[red]:X: ERRO! Digite um id válido.[/]')
+                                        print(erro)
                                 else:
                                     clear()
                                     func.title('DELETANDO DADOS')
@@ -225,7 +235,7 @@ while True:
                                         break
                                     else:
                                         clear()
-                                        func.title('DELETANDO VALORES')
+                                        func.title('DELETANDO DADOS')
                                         print('[red]:X: Digite um id válido[/]')
                             break
                         else:
@@ -246,5 +256,5 @@ while True:
     else:
         print('[red]:X: Digite um número válido![/]')
         opc = input('Digite sua opção: ')
-
+# FECHANDO O BANCO DE DADOS
 dao.close()

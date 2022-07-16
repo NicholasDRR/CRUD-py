@@ -43,17 +43,20 @@ def update(att, id_product):
         opt = 'name_product'
     command = f' UPDATE sales SET {opt} = "{att}" WHERE id_product = {id_product}'
     conn.cursor.execute(command)
-    conn.conn.commit()
+    conn.cursor.fetchall()
 
 
 # DELETE
 def delete(id_product):
     conn = connect()
-    command = f' DELETE FROM sales WHERE id_product = {id_product}'
-    conn.cursor.execute(command)
-    conn.conn.commit()
-
-
+    id = f'select id_product from sales where id_product = "{id_product}";'
+    conn.cursor.execute(id)
+    idexist = conn.cursor.fetchall()
+    if idexist:
+        command = f' DELETE FROM sales WHERE id_product = "{id_product}"'
+        conn.cursor.execute(command)
+        conn.conn.commit()
+        return True
 # 'Fechando' o banco de dados
 def close():
     conn = connect()
