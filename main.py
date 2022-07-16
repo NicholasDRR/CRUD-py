@@ -55,12 +55,19 @@ while True:
                     number = input('Preço: ')
                     price = func.checknumeric(func.convert(number))
             if name_product and price:
-                try:
-                    dao.insert(name, number)
+                nameexist = dao.insert(name, number)
+                if nameexist:
                     func.bar('INSERINDO')
-                    print('[green]:heavy_check_mark: Produto adicionado[/]')
-                except:
-                    print('[red]:X: ERRO! (desconhecido)[/]')
+                    clear()
+                    func.title('INSERINDO DADOS')
+                    print(f'[red]:X: ERRO! (Nome de produto já existe)[/]')
+                else:
+                    try:
+                        dao.insert(name, number)
+                        func.bar('INSERINDO')
+                        print('[green]:heavy_check_mark: Produto adicionado[/]')
+                    except:
+                        print('[red]:X: ERRO! (desconhecido)[/]')
         # READ
         if opc == '2':
             func.title('BANCO DE DADOS')

@@ -18,10 +18,16 @@ class connect:
 # CREATE
 def insert(name_product, price):
     conn = connect()
-    command = f' INSERT INTO sales (name_product, price) VALUES ("{name_product}", {price})'
-    conn.cursor.execute(command)
-    # Edita o banco de dados
-    conn.conn.commit()
+    name = f'select name_product from sales where name_product = "{name_product}";'
+    conn.cursor.execute(name)
+    nameexist = conn.cursor.fetchall()
+    if nameexist:
+        return True
+    else:
+        command = f' INSERT INTO sales (name_product, price) VALUES ("{name_product}", {price})'
+        conn.cursor.execute(command)
+        # Edita o banco de dados
+        conn.conn.commit()
 
 
 # READ
