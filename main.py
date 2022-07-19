@@ -244,7 +244,6 @@ while True:
                                     id = input('Id do produto: ')
                                     id_product = func.checknumeric(id)
                             break
-##################################################
                         elif int(nm) > 1:
                             clear()
                             func.title('DELETANDO DADOS')
@@ -259,7 +258,10 @@ while True:
                                     id_product.append(np)
                                     idnotexist = dao.id(np)
                                     if idnotexist:
-                                        print('teste')
+                                        func.bar('DELETANDO')
+                                        clear()
+                                        func.title('DELETANDO DADOS')
+                                        print('[red]:X: ERRO (ID inexistente).[/]')
                                         break
                                     else:
                                         for ids in id_product:
