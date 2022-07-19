@@ -184,12 +184,20 @@ while True:
                             idp = input('Id do produto: ')
                             id_product = func.checknumeric(idp)
                     if new_price and id_product:
-                        try:
-                            dao.update(np, idp)
+                        idexist = dao.id(idp)
+                        if idexist:
+                            clear()
+                            func.title('ATUALIZANDO DADOS')
                             func.bar('ATUALIZANDO')
-                            print('[green]:heavy_check_mark: Preço atualizado[/]! ')
-                        except:
-                            print('[red]:X: ERRO (desconhecido)[/]')
+                            print(f'[red]:X: ERRO! (ID de produto inválido)[/]')
+                        else:
+                            try:
+                                dao.update(np, idp)
+                                func.bar('ATUALIZANDO')
+                                print('[green]:heavy_check_mark: Preço atualizado[/]! ')
+                            except Exception as error:
+                                print('[red]:X: ERRO (desconhecido)[/]')
+                                print(f'{error}')
                     break
                 else:
                     clear()
@@ -221,6 +229,7 @@ while True:
                                                 f'[green]:heavy_check_mark: Produto com id: [blue]{id}[/] deletado![/]')
                                             break
                                         else:
+                                            func.bar('DELETANDO')
                                             clear()
                                             func.title('DELETANDO DADOS')
                                             print('[red]:X: ERRO (ID inexistente).[/]')
@@ -235,25 +244,34 @@ while True:
                                     id = input('Id do produto: ')
                                     id_product = func.checknumeric(id)
                             break
+##################################################
                         elif int(nm) > 1:
                             clear()
                             func.title('DELETANDO DADOS')
                             id_product = []
-                            for c in range(int(nm)):
-                                while True:
-                                    np = prompt.ask(f'[blue]{c + 1}º[/] id')
-                                    number = func.checknumeric(np)
-                                    if number:
-                                        id_product.append(np)
+                            c = 0
+                            while True:
+                                if int(c) >= int(nm):
+                                    break
+                                np = prompt.ask(f'[blue]{c + 1}º[/] id')
+                                number = func.checknumeric(np)
+                                if number:
+                                    id_product.append(np)
+                                    idnotexist = dao.id(np)
+                                    if idnotexist:
+                                        print('teste')
+                                        break
+                                    else:
                                         for ids in id_product:
                                             dao.delete(ids)
                                         func.bar('DELETANDO')
                                         print(f'[green]:heavy_check_mark: Id [blue]{np}[/] deletado![/]')
-                                        break
-                                    else:
-                                        clear()
-                                        func.title('DELETANDO DADOS')
-                                        print('[red]:X: Digite um id válido[/]')
+                                else:
+                                    #c = -1
+                                    clear()
+                                    func.title('DELETANDO DADOS')
+                                    print('[red]:X: Digite um id válido[/]')
+                                c += 1
                             break
                         else:
                             clear()
@@ -268,7 +286,6 @@ while True:
                     print('[red]:X: Por favor, digite apenas números[/]')
                     nm = input('Deseja apagar quantos valores: ')
                     amount = func.checknumeric(nm)
-
         break
     else:
         print('[red]:X: Digite um número válido![/]')

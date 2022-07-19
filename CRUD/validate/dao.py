@@ -73,7 +73,6 @@ def delete(id_product):
         command = f' DELETE FROM sales WHERE id_product = "{id_product}"'
         conn.cursor.execute(command)
         conn.conn.commit()
-        return True
 
 
 # VALIDANDO ID
