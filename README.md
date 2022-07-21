@@ -42,6 +42,16 @@ Extras:
 - [ ] Relacionar as tabelas 'sales' e 'clients'
 
 
-## Screenshot
+## Menu
+![crud-menu](./CRUD-img/crud-menu.PNG)
+## CREATE
+![crud-create](./CRUD-img/crud-opc1.PNG)
+## UPDATE
+![crud-update](./CRUD-img/crud-opc3.PNG)
+![crud-updatename](./CRUD-img/crud-opc3a.PNG)<br>
+![crud-updateprice](./CRUD-img/crud-opc3b.PNG)
+## DELETE
+![crud-delete](./CRUD-img/crud-opc4.PNG)
+## READ
+![crud-read](./CRUD-img/crud-opc2.PNG)
 
-![crud-menu](./CRUD-img/crud-menu.png)
