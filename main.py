@@ -84,7 +84,7 @@ while True:
                         table.add_column('Name_product')
                         table.add_column('Price')
                         for i in read:
-                            table.add_row(str(i[0]), str(i[1]), str(i[2]))
+                            table.add_row(str(i[0]), str(i[1]), str(f'{i[2]:.2f}'))
                         func.bar('LENDO')
                         clear()
                         print(table)
