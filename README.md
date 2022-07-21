@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Modifica produtos e preços de um banco e dados.
+Modifica produtos e preços de um banco de dados.
 
 ## Como Usar
 
