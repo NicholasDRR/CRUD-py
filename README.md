@@ -2,7 +2,7 @@
 
 ## Descrição
 
-
+Modifica produtos e preços de um banco e dados.
 
 ## Como Usar
 
@@ -23,14 +23,23 @@ Abrir o Cmd ou PowerShell Na pasta e rodar o comando: ```python main.py```
 
 ## Task-List
 
-- [X] funções Consumo APIs
-- [ ] Opções para organizar biblioteca internamente (Genero, nome, status)
+
+- [X] Conectar ao banco de dados
+- [X] Criar, Ler, Atualizar, Deletar
+- [X] Transformar o CRUD em funções
+- [X] Criar funções que validem os dados inseridos
+- [X] Criar função que verifica se dados já existem
+- [X] Criar função clear()
+- [X] Personalizar terminal utilizando RICH
+- [X] Adicionar PROGRESS BAR nas funções
+
+
 
 
 Extras:
 
-- [ ] Mostrar semelhantes ao adicionar livro biblioteca
-- [ ] API amazon book
+- [ ] Criar tabela 'clients'
+- [ ] Relacionar as tabelas 'sales' e 'clients'
 
 
 ## Screenshot
