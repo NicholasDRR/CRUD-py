@@ -75,7 +75,6 @@ while True:
             table = func.checkstr(tbl)
             while True:
                 if table:
-                    clear()
                     tbl2 = tbl.upper()
                     try:
                         read = dao.read(tbl)
@@ -86,7 +85,6 @@ while True:
                         for i in read:
                             table.add_row(str(i[0]), str(i[1]), str(f'{i[2]:.2f}'))
                         func.bar('LENDO')
-                        clear()
                         print(table)
                         break
                     except:
@@ -221,7 +219,7 @@ while True:
                             id_product = func.checknumeric(id)
                             while True:
                                 if id_product:
-                                    idexist = dao.delete(id)
+                                    idexist = dao.id(id)
                                     try:
                                         if idexist:
                                             func.bar('DELETANDO')
