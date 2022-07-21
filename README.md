@@ -44,4 +44,4 @@ Extras:
 
 ## Screenshot
 
-![homepage](./photos/home_page.png)
+![crud-menu](./CRUD-img/crud-menu.png)
