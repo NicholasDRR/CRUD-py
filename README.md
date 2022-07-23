@@ -47,8 +47,8 @@ Extras:
 ## CREATE
 ![crud-create](./CRUD-img/crud-opc1.PNG)
 ## UPDATE
-![crud-update](./CRUD-img/crud-opc3.PNG)
-![crud-updatename](./CRUD-img/crud-opc3a.PNG)<br>
+![crud-update](./CRUD-img/crud-opc3.PNG)</br>
+![crud-updatename](./CRUD-img/crud-opc3a.PNG)</br>
 ![crud-updateprice](./CRUD-img/crud-opc3b.PNG)
 ## DELETE
 ![crud-delete](./CRUD-img/crud-opc4.PNG)
