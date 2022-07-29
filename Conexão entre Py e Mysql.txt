@@ -1,0 +1,46 @@
+Primeira etapa:  
+-Fazer a integração do Python com o MySQL (é necessário ter o driver do MySQL para isso);
+-Para instalar esse driver se utiliza o comando pip-install mysql-connector-python no cmd ou no terminal do seu IDE;
+-Criar um banco de dados com a estrutura formada.
+
+Segunda etapa:
+Importar o conector instalado na etapa acima (import mysql.connector);
+Criar uma variável para receber esse conector e passar os principais parâmetros para criar essa conexão entre banco de dados e python
+Parâmetros = (host, user, password, database);
+Criar um cursor (é o que executa os comandos da conexão);
+Da mesma forma que se inicia uma conexão é necessário encerrá-la no final do código.
+Para encerrar a conexão basta utilizar:
+(nomeconexão).close()
+(nomecursor).close()
+
+Terceira etapa:
+
+CRUD (CREATE, READ, UPDATE, DELETE)
+
+As 4 categorias de comando seguem um padrão: 
+
+Primeiro é criado o comando que será executado no banco de dados (deve ser armazenado dentro de uma variável);
+
+Para ele ser executado deve se utilizar o CURSOR (cursor.execute(nomecomando);
+
+Quando o comando executado tem como função modificar o banco de dados, é necessário utilizar um commit. (nomeconexao.commit())
+
+Quando o comando executado tem como função ler o banco de dados, é necessário utilizar o comando cursor.fetchall().
+
+
+
+
+
+
+
+CREATE: 
+ 
+
+READ:
+ 
+
+UPDATE: 
+ 
+
+DELETE: 
+ 
