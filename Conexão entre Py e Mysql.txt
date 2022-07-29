@@ -1,46 +1,29 @@
 Primeira etapa:  
--Fazer a integraÁ„o do Python com o MySQL (È necess·rio ter o driver do MySQL para isso);
+-Fazer a integra√ß√£o do Python com o MySQL (√© necess√°rio ter o driver do MySQL para isso);
 -Para instalar esse driver se utiliza o comando pip-install mysql-connector-python no cmd ou no terminal do seu IDE;
 -Criar um banco de dados com a estrutura formada.
 
 Segunda etapa:
 Importar o conector instalado na etapa acima (import mysql.connector);
-Criar uma vari·vel para receber esse conector e passar os principais par‚metros para criar essa conex„o entre banco de dados e python
-Par‚metros = (host, user, password, database);
-Criar um cursor (È o que executa os comandos da conex„o);
-Da mesma forma que se inicia uma conex„o È necess·rio encerr·-la no final do cÛdigo.
-Para encerrar a conex„o basta utilizar:
-(nomeconex„o).close()
+Criar uma vari√°vel para receber esse conector e passar os principais par√¢metros para criar essa conex√£o entre banco de dados e python
+Par√¢metros = (host, user, password, database);
+Criar um cursor (√© o que executa os comandos da conex√£o);
+Da mesma forma que se inicia uma conex√£o √© necess√°rio encerr√°-la no final do c√≥digo.
+Para encerrar a conex√£o basta utilizar:
+(nomeconex√£o).close()
 (nomecursor).close()
 
 Terceira etapa:
 
 CRUD (CREATE, READ, UPDATE, DELETE)
 
-As 4 categorias de comando seguem um padr„o: 
+As 4 categorias de comando seguem um padr√£o: 
 
-Primeiro È criado o comando que ser· executado no banco de dados (deve ser armazenado dentro de uma vari·vel);
+Primeiro √© criado o comando que ser√° executado no banco de dados (deve ser armazenado dentro de uma vari√°vel);
 
 Para ele ser executado deve se utilizar o CURSOR (cursor.execute(nomecomando);
 
-Quando o comando executado tem como funÁ„o modificar o banco de dados, È necess·rio utilizar um commit. (nomeconexao.commit())
+Quando o comando executado tem como fun√ß√£o modificar o banco de dados, √© necess√°rio utilizar um commit. (nomeconexao.commit())
 
-Quando o comando executado tem como funÁ„o ler o banco de dados, È necess·rio utilizar o comando cursor.fetchall().
+Quando o comando executado tem como fun√ß√£o ler o banco de dados, √© necess√°rio utilizar o comando cursor.fetchall().
 
-
-
-
-
-
-
-CREATE: 
- 
-
-READ:
- 
-
-UPDATE: 
- 
-
-DELETE: 
- 
