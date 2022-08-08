@@ -19,7 +19,7 @@ Instalar Requisitos:
 
 ## Abrindo
 
-Abrir o Cmd ou PowerShell Na pasta e rodar o comando: ```python main.py```
+Abrir o Cmd ou PowerShell na pasta e rodar o comando: ```python main.py```
 
 ## Task-List
 
