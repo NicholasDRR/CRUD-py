@@ -21,7 +21,7 @@ As 4 categorias de comando seguem um padrão:
 
 Primeiro é criado o comando que será executado no banco de dados (deve ser armazenado dentro de uma variável);
 
-Para ele ser executado deve se utilizar o CURSOR (cursor.execute(nomecomando);
+Para ele ser executado deve se utilizar o CURSOR (cursor.execute(nomecomando));
 
 Quando o comando executado tem como função modificar o banco de dados, é necessário utilizar um commit. (nomeconexao.commit())
 
